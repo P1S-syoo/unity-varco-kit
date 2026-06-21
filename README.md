@@ -36,6 +36,30 @@ setx VARCO_OPENAPI_KEY "발급받은_키"
 - 유니티 런타임/에디터: `VarcoSecrets.cs`가 `VARCO_OPENAPI_KEY` 환경변수를 자동 로드합니다.
 - 파이썬 스크립트(nano-banana / roadview): 요청 헤더 `OPENAPI_KEY`에 키를 사용합니다.
 
+## 이미 클론/포크하신 분께 (히스토리 재작성 안내)
+
+`2026-06-21`에 문서 예시용 API 키 문자열 하나를 git 히스토리 전체에서 제거하기 위해
+**히스토리를 재작성하고 force-push** 했습니다. (실사용 불가능한 마스킹된 더미였지만,
+공개 레포에 키 형태 문자열을 남기지 않기 위함입니다.)
+
+그 이전에 받으신 분은 로컬 히스토리가 원격과 갈라져 있으므로 아래 중 하나로 맞춰주세요.
+
+```bash
+# 방법 A — 로컬 변경이 없을 때 (간단·권장)
+git fetch origin
+git reset --hard origin/main
+
+# 방법 B — 가장 확실 (다시 클론)
+#   기존 폴더 삭제 후
+git clone https://github.com/P1S-syoo/unity-varco-kit.git
+```
+
+> 로컬에서 작업한 커밋이 있다면 `reset --hard` 전에 `git branch backup-old`로 백업한 뒤,
+> 필요한 커밋만 `git cherry-pick`으로 새 `main` 위에 다시 얹으세요.
+
+플러그인 사용자(`/plugin install`로 설치만 한 경우)는 별도 조치가 필요 없습니다.
+`/plugin marketplace update unity-varco-kit` 한 번이면 최신 상태로 갱신됩니다.
+
 ## 라이선스
 
 [MIT](./LICENSE)
