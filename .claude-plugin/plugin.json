@@ -1,0 +1,17 @@
+{
+  "name": "unity-varco-kit",
+  "version": "1.0.0",
+  "description": "유니티 게임 개발 + NC VARCO 생성형 AI 연동 스킬 6종 묶음 (Claude Code 플러그인)",
+  "author": {
+    "name": "P1S-syoo"
+  },
+  "homepage": "https://github.com/P1S-syoo/unity-varco-kit",
+  "keywords": [
+    "unity",
+    "csharp",
+    "ugui",
+    "varco",
+    "nc-ai",
+    "game-dev"
+  ]
+}

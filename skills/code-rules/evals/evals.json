@@ -1,0 +1,48 @@
+{
+  "skill_name": "code-rules",
+  "evals": [
+    {
+      "id": 0,
+      "eval_name": "inventory-system-design",
+      "prompt": "유니티 게임에 인벤토리 시스템을 만들어줘. 아이템을 추가/제거/저장할 수 있어야 하고, 아이템 종류는 무기/소비/퀘스트 3가지야. 저장은 JSON 파일로 해줘. Inventory.cs 파일 하나로 작성해줘.",
+      "expected_output": "K&R 스타일, try-catch가 적용된 파일 I/O, 한글 한 줄 주석, 코드 작성 전 디자인패턴 decision tree 보고가 포함된 C# 코드",
+      "files": [],
+      "assertions": [
+        "K&R 스타일: 모든 여는 중괄호가 선언/제어문과 같은 줄에 있다 (Allman 스타일 줄이 없다)",
+        "try-catch: JSON 저장/로드 등 파일 I/O가 try-catch로 감싸져 있고 catch에서 한글 에러 로그를 남긴다",
+        "빈 catch 블록이 없다",
+        "주석이 전부 한글이며 각각 한 줄 이내다 (영어 주석 없음)",
+        "report.md에 디자인패턴 decision tree 판단 결과와 근거가 보고되어 있다"
+      ]
+    },
+    {
+      "id": 1,
+      "eval_name": "simple-bugfix-no-overengineering",
+      "prompt": "이 유니티 스크립트에서 점프가 두 번 되는 버그가 있어. 고쳐줘.",
+      "expected_output": "단순 버그 수정에 불필요한 패턴을 도입하지 않으면서, 수정 부분이 K&R 스타일과 한글 주석 규칙을 따름. decision tree 결과가 '패턴 불필요'로 보고됨",
+      "files": ["PlayerJump.cs"],
+      "assertions": [
+        "버그 수정: 점프 조건의 잘못된 OR 조건(rb.velocity.y > -0.1f)이 제거되거나 올바른 지면 판정으로 교체되어 이중 점프가 불가능하다",
+        "과잉설계 없음: 단순 버그픽스에 새 클래스/디자인패턴을 도입하지 않았다",
+        "수정/추가된 코드가 K&R 스타일이다",
+        "추가된 주석이 있다면 한글 한 줄이다",
+        "report.md에 패턴 판단 결과가 '불필요'로 보고되어 있다 (with_skill 한정)"
+      ]
+    },
+    {
+      "id": 2,
+      "eval_name": "event-system-pattern-choice",
+      "prompt": "게임 내 여러 UI(체력바, 퀘스트창, 사운드매니저)가 플레이어 피격 이벤트에 반응해야 해. 지금은 PlayerHealth.cs에서 각 UI를 직접 참조해서 호출하고 있는데 너무 결합도가 높아. 구조를 개선해줘.",
+      "expected_output": "decision tree를 거쳐 Observer/이벤트 패턴 계열을 선택하고 근거를 보고한 뒤, K&R + try-catch + 한글 주석으로 리팩토링된 코드",
+      "files": [],
+      "assertions": [
+        "Observer/이벤트 패턴 계열(C# event/Action, UnityEvent, SO 이벤트 채널 중 하나)을 선택하고 report.md에 근거를 보고했다",
+        "PlayerHealth가 UI들을 직접 참조하지 않는다 (결합도 제거)",
+        "구독 해제: OnDestroy 또는 OnDisable에서 이벤트 구독을 해제한다",
+        "모든 코드가 K&R 스타일이다",
+        "주석이 전부 한글 한 줄이다",
+        "실패 가능 지점(이벤트 핸들러 등)에 try-catch + 한글 로그가 있다"
+      ]
+    }
+  ]
+}

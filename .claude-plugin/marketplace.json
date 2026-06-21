@@ -1,0 +1,32 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "unity-varco-kit",
+  "description": "Unity C# 컨벤션 + uGUI 레이아웃 + Git 워크플로우 + NC VARCO 생성형 AI(오디오/3D/2D/번역) 연동 스킬 묶음",
+  "owner": {
+    "name": "P1S-syoo"
+  },
+  "version": "1.0.0",
+  "plugins": [
+    {
+      "name": "unity-varco-kit",
+      "source": "./",
+      "description": "유니티 게임 개발용 스킬 6종 — code-rules(C# 컨벤션), unity-ugui-layout(uGUI UI), github-commit-push(커밋/푸시), unity-varco(VARCO 오디오·3D·번역), varco-nano-banana(VARCO 2D 이미지), roadview-to-3d(로드뷰→3D).",
+      "version": "1.0.0",
+      "author": {
+        "name": "P1S-syoo"
+      },
+      "category": "development",
+      "homepage": "https://github.com/P1S-syoo/unity-varco-kit",
+      "keywords": [
+        "unity",
+        "csharp",
+        "ugui",
+        "varco",
+        "nc-ai",
+        "image-to-3d",
+        "text-to-speech",
+        "game-dev"
+      ]
+    }
+  ]
+}
